@@ -1,0 +1,23 @@
+TARGET := display
+SRC := $(TARGET).c
+OBJ := $(TARGET).o test2.o
+
+
+CFLAGS := -g -Wall
+LFLAGS := -lm -pthread
+CC := gcc $(CFLAGS) $(LFLAGS)
+
+
+all : $(TARGET)
+
+
+$(TARGET): $(OBJ) 	
+	$(CC) -o $@ $^ $(LFLAGS)
+	gcc -shared display.c -fPIC -o libdlink.so
+	gcc -o testd_exe test2.c -L. -ldlink
+	export LD_LIBRARY_RATH="/home/meit2324/cpi2324"	
+.c.o:
+	$(CC) -c $^
+clean:
+	rm -f $(TARGET) $(OBJ) libdlink.so testd_exe
+
