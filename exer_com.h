@@ -25,10 +25,11 @@ struct st_ary	{
 typedef struct st_ary ST_ARY;
 
 //----共用体定義----------------------------------
-union uni_smpl	{
-	long	l_mnb;
-	ST_ARY sary;
+union uni_exer	{
+	ST_EXER exer;	//st_exer構造体リンク
+	ST_ARY sary;	//st_ary構造体リンク
 };
 
-typedef union uni_smpl UNI_SMPL;
+typedef union uni_exer UNI_EXER;
+
 
